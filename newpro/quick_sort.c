@@ -1,14 +1,22 @@
 #include <stdio.h>
 
+void swap_lc(int *a, int *b)
+{
+    int temp;
+    temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
 int main()
 {
     int i, j;
     int temp, min_value;
     int min_index;
-    int array_cnt = 5;
+    int array_cnt = 10;
     int swap_cnt = 0;
-    // int a[10] = {9, 3, 4, 2, 8, -5, 10, 150, 40, 89};
-    int a[5] = {6, 1, 4, 7, 2};
+    int a[10] = {9, 3, 4, 2, 8, -5, 10, 150, 40, 89};
+    // int a[5] = {6, 1, 4, 7, 2};
 
     for (i = 0; i < array_cnt; i++)
     {
@@ -28,9 +36,7 @@ int main()
                 min_index = j;
             }
         }
-        temp = a[min_index];
-        a[min_index] = a[i];
-        a[i] = temp;
+        swap_lc(&a[min_index], &a[i]);
     }
 
     printf("After Selection Sort\n");
